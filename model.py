@@ -7,3 +7,5 @@ def load_frame():
 # columns=['title', 'truth_val', 'real_url', 'clean_tokenized_content'] 
 
     return df
+
+df = load_frame()

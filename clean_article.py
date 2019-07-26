@@ -64,6 +64,7 @@ def process_url():
 if __name__ == "__main__":
    outfile = 'snopes.csv'
    with open(outfile, 'w+') as f:
+        f.write('title, truth, url,  content\n') 
         for i in range(50):
             title, truth_val, real_url, clean_tokenized_content = process_url()
             # print(title)
