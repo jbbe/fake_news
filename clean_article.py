@@ -28,11 +28,12 @@ def process_url():
     claim_idx = plain.find('<div class="claim">') + 19
     end_claim = plain[claim_idx:].find('</div>') + claim_idx
     title = plain[claim_idx:end_claim]
-    title = re.sub(r'<[/p]+>', "", title).strip()
-    title = re.sub(r'\s{2,}', " ", title).strip()
+    # title = re.sub(r'<[/p]+>', "", title).strip()
+    title = re.sub(r'<[^>]+>', '', title).strip()
+    title = re.sub(r'\s{2,}', " ", title).replace(',', '')
     truth_val_start = plain.find('rating-label-')+13
     truth_val_end = truth_val_start + plain[truth_val_start:].find('"')
-    truth_val = plain[truth_val_start:truth_val_end]
+    truth_val = plain[truth_val_start:truth_val_end].replace(',', '')
 
     content_start = plain.find('<div class="content">')
     article_end = content_start + plain[content_start:].find('</article>')
@@ -63,7 +64,7 @@ def process_url():
 if __name__ == "__main__":
    outfile = 'snopes.csv'
    with open(outfile, 'w+') as f:
-        for i in range(10):
+        for i in range(50):
             title, truth_val, real_url, clean_tokenized_content = process_url()
             # print(title)
             if 'false' in truth_val:
