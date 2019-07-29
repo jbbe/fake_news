@@ -68,9 +68,9 @@ if __name__ == "__main__":
         for i in range(50):
             title, truth_val, real_url, clean_tokenized_content = process_url()
             # print(title)
-            if 'false' in truth_val:
-                out_line = ', '.join(str(v) for v in [title, truth_val, real_url, clean_tokenized_content, '\n'])
-                f.write(out_line)
+            # if 'false' in truth_val:
+            out_line = ', '.join(str(v) for v in [title, truth_val, real_url, clean_tokenized_content, '\n'])
+            f.write(out_line)
     
 
 

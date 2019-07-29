@@ -1,0 +1,3 @@
+naive_bayes: 0.7437567132116004
+SVM simple 0.6479591836734694
+SVM with lens + ngram: 0.7316058002148227
