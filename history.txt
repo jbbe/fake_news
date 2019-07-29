@@ -263,4 +263,70 @@ roc_auc: 0.9592236687770015
 precision: 0.9130434782608695
 recall: 0.7949526813880127
 
-
+n=1000
+with sent_lens
+Pipeline(memory=None,
+         steps=[('FeatureUnion',
+                 FeatureUnion(n_jobs=None,
+                              transformer_list=[('title_tfidf',
+                                                 Pipeline(memory=None,
+                                                          steps=[('extract_field',
+                                                                  FunctionTransformer(accept_sparse=False,
+                                                                                      check_inverse=True,
+                                                                                      func=<function classifier_pipe.<locals>.<lambda> at 0x118b35048>,
+                                                                                      inv_kw_args=None,
+                                                                                      inverse_func=None,
+                                                                                      kw_args=None,
+                                                                                      pass_y='deprecated',
+                                                                                      validate=False...
+                                                                                  tokenizer=None,
+                                                                                  use_idf=True,
+                                                                                  vocabulary=None))],
+                                                          verbose=False))],
+                              transformer_weights=None, verbose=False)),
+                ('clf',
+                 LogisticRegression(C=100, class_weight=None, dual=False,
+                                    fit_intercept=True, intercept_scaling=1,
+                                    l1_ratio=None, max_iter=8000,
+                                    multi_class='warn', n_jobs=-1, penalty='l2',
+                                    random_state=None, solver='sag', tol=0.0001,
+                                    verbose=0, warm_start=False))],
+         verbose=False)
+score = 0.87
+{}
+roc_auc: 0.9523993808049536
+precision: 0.9019607843137255
+recall: 0.8070175438596491
+without_sent_lens
+Pipeline(memory=None,
+         steps=[('FeatureUnion',
+                 FeatureUnion(n_jobs=None,
+                              transformer_list=[('title_tfidf',
+                                                 Pipeline(memory=None,
+                                                          steps=[('extract_field',
+                                                                  FunctionTransformer(accept_sparse=False,
+                                                                                      check_inverse=True,
+                                                                                      func=<function classifier_pipe.<locals>.<lambda> at 0x12c9db048>,
+                                                                                      inv_kw_args=None,
+                                                                                      inverse_func=None,
+                                                                                      kw_args=None,
+                                                                                      pass_y='deprecated',
+                                                                                      validate=False...
+                                                                                  tokenizer=None,
+                                                                                  use_idf=True,
+                                                                                  vocabulary=None))],
+                                                          verbose=False))],
+                              transformer_weights=None, verbose=False)),
+                ('clf',
+                 LogisticRegression(C=100, class_weight=None, dual=False,
+                                    fit_intercept=True, intercept_scaling=1,
+                                    l1_ratio=None, max_iter=8000,
+                                    multi_class='warn', n_jobs=-1, penalty='l2',
+                                    random_state=None, solver='sag', tol=0.0001,
+                                    verbose=0, warm_start=False))],
+         verbose=False)
+score = 0.87
+{}
+roc_auc: 0.9523348813209495
+precision: 0.9019607843137255
+recall: 0.8070175438596491
